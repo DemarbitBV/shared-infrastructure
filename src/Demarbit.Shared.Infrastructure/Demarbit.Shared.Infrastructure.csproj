@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Demarbit.Shared.Application" Version="1.0.3" />
+    <PackageReference Include="Demarbit.Shared.Domain" Version="1.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.3" />
+  </ItemGroup>
+
+  <!-- Package assets: README and icon from repo root -->
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
+    <None Include="../../icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
