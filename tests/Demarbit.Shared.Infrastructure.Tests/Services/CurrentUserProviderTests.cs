@@ -20,4 +20,14 @@ public class CurrentUserProviderTests
 
         Assert.IsType<ICurrentUserProvider>(provider, false);
     }
+
+    [Fact]
+    public void SetUserId_Updates_UserId()
+    {
+        var provider = new CurrentUserProvider();
+
+        var userId = Guid.NewGuid();
+        provider.SetUserId(userId);
+        Assert.Equal(userId, provider.UserId);
+    }
 }

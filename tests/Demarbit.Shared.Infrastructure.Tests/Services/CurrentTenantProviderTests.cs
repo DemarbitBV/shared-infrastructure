@@ -20,4 +20,15 @@ public class CurrentTenantProviderTests
 
         Assert.IsType<ICurrentTenantProvider>(provider, false);
     }
+
+    [Fact]
+    public void SetTenantId_Updates_TenantId()
+    {
+        var provider = new CurrentTenantProvider();
+
+        var tenantId = Guid.NewGuid();
+        provider.SetTenantId(tenantId);
+        
+        Assert.Equal(tenantId, provider.TenantId);
+    }
 }
