@@ -43,6 +43,7 @@ public abstract class AppDbContextBase<TContext>(
     private IDbContextTransaction? _currentTransaction;
     private readonly List<IDomainEvent> _pendingEvents = [];
     
+    /// <summary>Tracks processed domain events for idempotency.</summary>
     public DbSet<ProcessedEvent> ProcessedEvents { get; set; }
 
     /// <inheritdoc/>
@@ -62,6 +63,7 @@ public abstract class AppDbContextBase<TContext>(
         return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
     }
 
+    /// <inheritdoc/>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

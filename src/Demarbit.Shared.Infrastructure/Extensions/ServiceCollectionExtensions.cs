@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Demarbit.Shared.Infrastructure.Extensions;
 
+/// <summary>
+/// Extension methods for <see cref="IServiceCollection"/> to register shared infrastructure services.
+/// </summary>
 public static class ServiceCollectionExtensions
 {
     /// <summary>
@@ -26,11 +29,11 @@ public static class ServiceCollectionExtensions
     /// </param>
     /// <param name="userProviderType">
     /// The service type for the implementation of the ICurrentUserProvider interface.
-    /// If no type is specified, the standard <see cref="EmptyCurrentUserProvider" /> will be used which does not track session context
+    /// If no type is specified, the standard <see cref="CurrentUserProvider" /> will be used which does not track session context
     /// </param>
     /// <param name="tenantProviderType">
     /// The service type for the implementation of the ICurrentTenantProvider interface.
-    /// If no type is specified, the standard <see cref="EmptyCurrentTenantProvider" /> will be used which does not track session context
+    /// If no type is specified, the standard <see cref="CurrentTenantProvider" /> will be used which does not track session context
     /// </param>
     /// <returns>The service collection for chaining.</returns>
     /// <example>
@@ -69,8 +72,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEventIdempotencyService, EventIdempotencyService<TContext>>();
         
         // Session services
-        services.AddScoped(typeof(ICurrentUserProvider), userProviderType ?? typeof(EmptyCurrentUserProvider));
-        services.AddScoped(typeof(ICurrentTenantProvider),  tenantProviderType ?? typeof(EmptyCurrentTenantProvider));
+        services.AddScoped(typeof(ICurrentUserProvider), userProviderType ?? typeof(CurrentUserProvider));
+        services.AddScoped(typeof(ICurrentTenantProvider),  tenantProviderType ?? typeof(CurrentTenantProvider));
 
         return services;
     }

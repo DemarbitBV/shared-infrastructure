@@ -31,6 +31,7 @@ namespace Demarbit.Shared.Infrastructure.Persistence;
 public abstract class DesignTimeDbContextFactoryBase<TContext> : IDesignTimeDbContextFactory<TContext>
     where TContext : DbContext
 {
+    /// <inheritdoc/>
     public TContext CreateDbContext(string[] args)
     {
         var connectionString = GetConnectionString();

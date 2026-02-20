@@ -16,7 +16,9 @@ public abstract class RepositoryBase<TAggregate, TId>(DbContext context) : IRepo
     where TAggregate : AggregateRoot<TId>
     where TId : notnull, IEquatable<TId>
 {
+    /// <summary>The underlying <see cref="DbContext"/>.</summary>
     protected DbContext Context => context;
+    /// <summary>The <see cref="DbSet{TEntity}"/> for the aggregate type.</summary>
     protected DbSet<TAggregate> DbSet => context.Set<TAggregate>();
     
     /// <inheritdoc/>
