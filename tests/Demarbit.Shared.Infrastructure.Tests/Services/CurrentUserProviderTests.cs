@@ -18,6 +18,6 @@ public class CurrentUserProviderTests
     {
         var provider = new CurrentUserProvider();
 
-        Assert.IsAssignableFrom<ICurrentUserProvider>(provider);
+        Assert.IsType<ICurrentUserProvider>(provider, false);
     }
 }

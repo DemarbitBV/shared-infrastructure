@@ -81,6 +81,7 @@ public class EventIdempotencyServiceTests : IDisposable
 
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         _scope.Dispose();
         _serviceProvider.Dispose();
     }

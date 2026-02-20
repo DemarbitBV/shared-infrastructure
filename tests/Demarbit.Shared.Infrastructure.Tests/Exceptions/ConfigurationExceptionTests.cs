@@ -29,6 +29,6 @@ public class ConfigurationExceptionTests
     {
         var exception = new ConfigurationException("Key");
 
-        Assert.IsAssignableFrom<Exception>(exception);
+        Assert.IsType<Exception>(exception, false);
     }
 }

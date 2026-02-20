@@ -170,5 +170,9 @@ public class RepositoryBaseTests : IDisposable
         Assert.Null(exception);
     }
 
-    public void Dispose() => _context.Dispose();
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _context.Dispose();
+    }
 }

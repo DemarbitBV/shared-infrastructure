@@ -18,6 +18,6 @@ public class CurrentTenantProviderTests
     {
         var provider = new CurrentTenantProvider();
 
-        Assert.IsAssignableFrom<ICurrentTenantProvider>(provider);
+        Assert.IsType<ICurrentTenantProvider>(provider, false);
     }
 }

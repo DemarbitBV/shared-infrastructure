@@ -7,7 +7,7 @@ namespace Demarbit.Shared.Infrastructure.Tests.Extensions;
 
 public class ServiceProviderExtensionsTests
 {
-    private ServiceProvider BuildProvider()
+    private static ServiceProvider BuildProvider()
     {
         var services = new ServiceCollection();
         services.AddSharedInfrastructure<TestDbContext>(

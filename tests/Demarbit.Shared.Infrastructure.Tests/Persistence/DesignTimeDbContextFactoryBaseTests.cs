@@ -55,6 +55,6 @@ public class DesignTimeDbContextFactoryBaseTests
     {
         var factory = new TestDesignTimeDbContextFactory();
 
-        Assert.IsAssignableFrom<IDesignTimeDbContextFactory<TestDbContext>>(factory);
+        Assert.IsType<IDesignTimeDbContextFactory<TestDbContext>>(factory, false);
     }
 }

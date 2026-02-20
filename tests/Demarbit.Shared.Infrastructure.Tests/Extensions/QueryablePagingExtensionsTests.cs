@@ -101,5 +101,9 @@ public class QueryablePagingExtensionsTests : IDisposable
         Assert.Equal(25, result.TotalCount);
     }
 
-    public void Dispose() => _context.Dispose();
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _context.Dispose();
+    }
 }

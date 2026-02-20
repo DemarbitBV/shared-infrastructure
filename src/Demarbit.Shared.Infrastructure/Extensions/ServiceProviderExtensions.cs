@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Demarbit.Shared.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,7 @@ namespace Demarbit.Shared.Infrastructure.Extensions;
 /// <summary>
 /// Extension methods for bootstrapping the database on application startup.
 /// </summary>
+[SuppressMessage("Roslyn", "CA1873", Justification = "The code in this class only runs once on startup")]
 public static class ServiceProviderExtensions
 {
     /// <summary>

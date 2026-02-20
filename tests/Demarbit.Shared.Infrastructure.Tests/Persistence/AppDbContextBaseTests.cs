@@ -188,8 +188,12 @@ public class AppDbContextBaseTests : IDisposable
     [Fact]
     public void ImplementsIUnitOfWork()
     {
-        Assert.IsAssignableFrom<IUnitOfWork>(_context);
+        Assert.IsType<IUnitOfWork>(_context, false);
     }
 
-    public void Dispose() => _context.Dispose();
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _context.Dispose();
+    }
 }
