@@ -73,7 +73,7 @@ public abstract class AppDbContextBase<TContext>(
 
     private void SetAuditingFields()
     {
-        var now = TimeProvider.System.GetUtcNow().DateTime;
+        var now = TimeProvider.System.GetUtcNow().UtcDateTime;
         var userId = userProvider.UserId;
         var tenantId = tenantProvider.TenantId;
 
