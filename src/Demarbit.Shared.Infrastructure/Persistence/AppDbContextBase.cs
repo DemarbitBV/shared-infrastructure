@@ -114,7 +114,7 @@ public abstract class AppDbContextBase<TContext>(
     private List<IDomainEvent> CollectDomainEvents()
     {
         var aggregatesWithEvents = ChangeTracker
-            .Entries<AggregateRoot>()
+            .Entries<IAggregateRoot>()
             .Select(e => e.Entity)
             .Where(a => a.DomainEvents.Count > 0)
             .ToList();
